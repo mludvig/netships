@@ -6,13 +6,14 @@
 //
 
 #include	<ncurses.h>
+#include "../version.h"
 
 #ifndef _NS_H_MIC_
 #define _NS_H_MIC_
 
 #define	EMAIL			"michal@logix.cz"
 #define	COPY_YEAR	"1996-2001"
-#define	VERSION		"1.2b4"
+// #define	VERSION		"1.2b4"
 #define	TITLE			" NetShips " VERSION " "
 
 #define	f(x,y)			f[xs*y+x]

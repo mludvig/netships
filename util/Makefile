@@ -6,7 +6,7 @@ TOPDIR = ../
 
 include $(TOPDIR)/Makefile.common
 
-EXEC = libmic.a
+EXEC = libutil.a
 OBJS = failprog.o
 
 all:	$(EXEC)

@@ -6,7 +6,7 @@ TOPDIR  = ../
 
 include $(TOPDIR)/Makefile.common
 
-LIBOPT  = -L$(TOPDIR)/util -L$(TOPDIR)/comm -lmic -lncurses -lcomm
+LIBOPT  = -L$(TOPDIR)/util -L$(TOPDIR)/comm -lncurses -lutil -lcomm
 CFLAGS  = -I$(TOPDIR)/util -I$(TOPDIR)/comm -Wall -ggdb
 ARCHDIR = $(TOPDIR)/arch
 
@@ -15,16 +15,20 @@ OBJS	= sea.o main.o pool.o comm.o sea2.o poolk.o poolu.o info.o poolk-fill.o
 
 ARCHDATE= $(TOPDIR)/b$(TOPDIR)/archdate
 
-all: $(EXEC)
+all: depend $(EXEC)
 
 $(EXEC): $(OBJS)
 	$(CC) -o $(EXEC) $(OBJS) $(LIBOPT)
 
 # Some service targets:
 clean: 
-	rm -f *.o *~ core $(EXEC)
+	rm -f *.o *~ core $(EXEC) depend
 
 arch: 
 	tar cvfz netship.`$(ARCHDATE)`.tgz *.cc *.h Makefile $(EXEC)
 	mv netship.*.tgz $(ARCHDIR)
 
+depend: 
+	-gcc -MM $(CFLAGS) *.cc > depend
+
+-include depend
