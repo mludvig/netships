@@ -3,7 +3,7 @@
 
 include Makefile.common
 
-EXEC=netships
+EXEC=ncu/netships
 SUBDIRS=util comm ncu # sub-packages to build/install
 
 all:	$(EXEC)
@@ -12,7 +12,7 @@ all:	$(EXEC)
 
 $(EXEC): $(SUBDIRS)
 	@echo ""
-	@ls -l ncu/netships
+	@ls -l $(EXEC)
 	@echo ""
 
 non-existing-file:
@@ -27,7 +27,7 @@ ncu: non-existing-file
 	$(MAKE) -C ncu all
 
 clean:
-	rm -f *~ *.o core $(EXEC) version.h
+	rm -f *~ *.o core $(EXEC)
 	for i in $(SUBDIRS); do $(MAKE) -C $$i clean; done
 
 distclean: clean
@@ -41,8 +41,5 @@ cvsclean: distclean
 arch:	$(SUBDIRS)
 	for i in $(SUBDIRS); do $(MAKE) -C $$i arch; done
 
-dist: distclean
-	bin/dist.sh $(EXEC) $(VER)
-
 install: $(EXEC)
-	install -s $(EXEC) $(INSTDIR)
+	$(INSTALL) -s $(EXEC) $(bindir)

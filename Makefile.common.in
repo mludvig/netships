@@ -7,6 +7,12 @@ CFLAGS	= -Wall -g -O2 -I$(TOPDIR)/util
 CFLAGS += @CFLAGS@ @CPPFLAGS@ @DEFS@
 LDFLAGS	= @LDFLAGS@ @LIBS@
 
+INSTALL	= @INSTALL@
+INSTALLBIN = @INSTALL_PROGRAM@
+prefix  = @prefix@
+exec_prefix = @exec_prefix@
+bindir	= @bindir@
+
 CPP	= $(CC) -E
 
 ARCHDIR = $(TOPDIR)/arch
