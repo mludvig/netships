@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 	
 	inf=new info(NULL,3,LINES-9,COLS-6,8);
 	
-	inf->writef(A_BOLD,"%s (c) %s\nMichal Ludvig <%s>\n", COPY_YEAR, TITLE, EMAIL);
+	inf->writef(A_BOLD,"%s (c) %s\nMichal Ludvig <%s>   (%s)\n", COPY_YEAR, TITLE, EMAIL, URL);
 	
 	if(inf==NULL)
 		endwin();
