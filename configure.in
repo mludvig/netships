@@ -1,5 +1,5 @@
 # Process this file with autoconf to produce a configure script.
-AC_INIT(NetShips, 1.4pre1, michal@logix.cz)
+AC_INIT(NetShips, 1.4, michal@logix.cz)
 AC_CONFIG_SRCDIR([ncu/pool.cc])
 
 # Checks for programs.
