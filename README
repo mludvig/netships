@@ -1,0 +1,66 @@
+NetShips battle
+===============
+
+Author:  Michal Ludvig <michal@logix.cz>
+License: BSD-like (see LICENSE file for details)
+
+This game is a popular "ship's battle" usually played by two people,
+two papers and two pencils. In this version two people will connect
+over the network and play interactively against each other on their 
+computer screens. 
+
+Installation
+------------
+Untar the archive tarball and just type 'make' in the top level
+directory. You should have ncurses installed before compilation, but
+there's no checking (aka autoconfig) yet. After a while you shoud have
+'netships' binary in NetShips' tolpevel directory. This binary is 
+standalone and there is no need of other files for it to work. 
+'make install' will place this file into /usr/local/bin. 
+
+Usage
+-----
+This is a game for two players. 
+Player1 will just run 'netships' and fill in the appropriate number 
+of ships of four different lengths. While palcing your ships, you can
+press key 'C' to verify, whether your pool is filled with the right
+number of ships and whether they don't collide (ships can't touch even
+by their corners). After you are ready and the pool is OK, pressing
+'C' will switch you to the listen mode and you will wait for your
+partner to connect you.
+Player2 will behave exactly the same way as Player1, except that he
+must tell NetShips, that it should connect to the other player. Use
+'netships name.of.partys.computer.com' for it. Programs will
+communicate on the port 8421. 
+After connecting, you will see, whether it's your turn in the bottom
+right corner where "Wait..." or "Play..." is written. 
+In case it's your turn, move your gun around the opponent's pool using
+cursor keys and press Enter once you are on the field you've chosen. 
+Three possible results could appear: 
+'##' - you hit the ship, it is destroyed and is sinking.
+'[]' - you hit the ship, but it isn't yet completely destroyed. Choose
+       one field around this one, and play once again.
+'::' - you missed and your enemy will play.
+The one who destroys all opponents ships WINS.
+
+Design
+------
+NetShips is designed to have a modular concept. There are three
+indpendent layers: 
+- Networking 
+	- Only TCP/IP is supported by now, but porting to another
+	  protocol or porting from BSD-sockets interface shoud be 
+	  easy.
+- Game logic 
+	- Is written in C++ and should be portable without much effort.
+- User interface
+	- This part just receives keypresses from user and displays game
+	  status obtained from "Game logic" layer.
+	- Currently only ncurses interface is implemented, but adding
+	  X-Window version shoudn't be a problem for someone who can
+	  program under X-Win.
+
+ToDo list
+---------
+- Implementation of X-Windows user interface
+- More robust networking (especially connecting issues)

@@ -1,10 +1,7 @@
 /*
- * mic_t.h
- *
  * Michal Ludvig <michal@logix.cz>
  * 2000-07-25
  * License: BSD like
- *
  */
 
 #ifndef _MIC_T_H_

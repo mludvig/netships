@@ -10,7 +10,7 @@ LIBOPT  = -L$(TOPDIR)/util -L$(TOPDIR)/comm -lmic -lncurses -lcomm
 CFLAGS  = -I$(TOPDIR)/util -I$(TOPDIR)/comm -Wall -ggdb
 ARCHDIR = $(TOPDIR)/arch
 
-EXEC	= ns
+EXEC	= netships
 OBJS	= sea.o main.o pool.o comm.o sea2.o poolk.o poolu.o info.o poolk-fill.o
 
 ARCHDATE= $(TOPDIR)/b$(TOPDIR)/archdate

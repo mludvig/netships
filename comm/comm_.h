@@ -1,3 +1,8 @@
+/*
+ * Author: Michal Ludvig <michal@logix.cz>
+ * License: BSD-like (see ../LICENSE for details)
+ */
+
 #ifndef __COMM_H__
 #define __COMM_H__
 

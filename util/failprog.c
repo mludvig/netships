@@ -1,6 +1,7 @@
 /*
  * Failprog function
  * Michal Ludvig <michal@logix.cz> (c) 1997-2001
+ * License: BSD-like
  */
 
 #include <stdio.h>

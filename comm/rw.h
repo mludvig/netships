@@ -1,3 +1,8 @@
+/*
+ * Author: Michal Ludvig <michal@logix.cz>
+ * License: BSD-like (see ../LICENSE for details)
+ */
+
 #ifndef __RW_H_
 #define __RW_H_
 

@@ -3,9 +3,11 @@
 
 include Makefile.common
 
-EXEC      =  ns
+EXEC = netships
 
-SUBDIRS    =  util comm ncu # sub-packages to build/install
+SUBDIRS = util comm ncu # sub-packages to build/install
+
+INSTDIR=/usr/local/bin
 
 all:	$(EXEC)
 
@@ -26,7 +28,6 @@ $(EXEC): $(SUBDIRS)
 	make -C comm all
 	make -C ncu all
 	cp ncu/$(EXEC) .
-	strip $(EXEC)
 
 util:
 	$(MAKE) -C util all
@@ -36,3 +37,6 @@ comm:
 
 ncu:
 	$(MAKE) -C util ncu
+
+install: $(EXEC)
+	install -s $(EXEC) $(INSTDIR)

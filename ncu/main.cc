@@ -20,8 +20,6 @@
 #define	xs	10
 #define	ys	10
 
-#define		TITLE	" NetShips v1.2b3 "
-
 void crframe(void)
 {
 	/* init main window */
@@ -52,7 +50,7 @@ int main(int argc, char *argv[])
 	
 	inf=new info(NULL,3,LINES-9,COLS-6,8);
 	
-	inf->writef(A_BOLD,"%s (c) 1996-2000\nMichal Ludvig <michal@logix.cz>\n",TITLE);
+	inf->writef(A_BOLD,"%s (c) %s\nMichal Ludvig <%s>\n", COPY_YEAR, TITLE, EMAIL);
 	
 	if(inf==NULL)
 		endwin();
@@ -78,7 +76,7 @@ int main(int argc, char *argv[])
 		else
 			inf->writef(A_BOLD|A_BLINK,"Connection failed (%s)",strerror(errno));
 			
-		inf->writef(A_BOLD,"\n%s (c) 1996-2000\nMichal Ludvig <michal@logix.cz>\n",TITLE);
+		inf->writef(A_BOLD,"\n%s (c) %s\nMichal Ludvig <%s>\n", COPY_YEAR, TITLE, EMAIL);
 	
 		delete pk;
 		delete pu;
@@ -155,7 +153,7 @@ int main(int argc, char *argv[])
 			break;
 	}
 	
-	inf->writef(A_BOLD,"\n%s (c) 1996\nMichal Ludvig <ludvigm@cs.felk.cvut.cz>\n",TITLE);
+	inf->writef(A_BOLD,"\n%s (c) %s\nMichal Ludvig <%s>\n", COPY_YEAR, TITLE, EMAIL);
 
 	delete pu;
 

@@ -1,7 +1,8 @@
 //
 // info box
-// Michal Ludvig <mic@cybeteria.cz>
+// Michal Ludvig <michal@logix.cz>
 // 08 Dec 1996
+// License: BSD-like
 //
 
 #include <stdlib.h>

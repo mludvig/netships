@@ -1,6 +1,7 @@
 //
 // NetShips class header file
-// Michal Ludvig <mic@cybeteria.cz>
+// Michal Ludvig <michal@logix.cz>
+// License: BSD-like
 // 22.11.1996
 //
 
@@ -8,6 +9,11 @@
 
 #ifndef _NS_H_MIC_
 #define _NS_H_MIC_
+
+#define	EMAIL			"michal@logix.cz"
+#define	COPY_YEAR	"1996-2001"
+#define	VERSION		"1.2b4"
+#define	TITLE			" NetShips " VERSION " "
 
 #define	f(x,y)			f[xs*y+x]
 

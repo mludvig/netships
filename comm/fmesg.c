@@ -1,6 +1,7 @@
 /*
  * Formatted-message handler functions
- * Michal Ludvig <mic@bigfoot.com>
+ * Michal Ludvig <micha@logix.cz>
+ * BSD-like license
  * 06 Dec 1996
  */
 

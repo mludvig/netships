@@ -1,6 +1,7 @@
 /*
  * ReadN/WriteN/ReadF/WriteF functions
- * Michal Ludvig <mic@bigfoot.com>
+ * Michal Ludvig <michal@logix.cz>
+ * License: BSD-like
  * 31 Nov 1996
  */
 

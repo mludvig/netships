@@ -1,6 +1,7 @@
 //
 // pool class
-// Michal Ludvig <mic@cybeteria.cz>
+// Michal Ludvig <michal@logix.cz>
+// License: BSD-like
 // 22.11.1996
 //
 

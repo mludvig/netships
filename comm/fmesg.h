@@ -1,6 +1,7 @@
 /*
  * Header for fmesg.c functions
- * Michal Ludvig <mic@bigfoot.com>
+ * Michal Ludvig <michal@logix.cz>
+ * License: BSD-like
  * 06 Dec 1996
  */
 
