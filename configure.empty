@@ -1,0 +1,14 @@
+#!/bin/sh
+
+mv $0 $0.bak
+
+echo "Running autoconf first..."
+
+autoconf
+if [ $? = "0" ]; then
+	$0 $*
+fi
+
+rm $0.bak
+
+echo "Now run 'make'"

@@ -1,0 +1,31 @@
+# Process this file with autoconf to produce a configure script.
+AC_INIT(NetShips, 1.4pre1, michal@logix.cz)
+AC_CONFIG_SRCDIR([ncu/pool.cc])
+AC_CONFIG_HEADER([config.h])
+
+# Checks for programs.
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_AWK
+AC_PROG_INSTALL
+
+# Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS([arpa/inet.h netdb.h netinet/in.h stdlib.h string.h sys/socket.h sys/time.h unistd.h])
+
+# Check for ncurses
+AC_CHECK_HEADERS(ncurses.h)
+AC_CHECK_LIB([ncurses], [newwin wprintw])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_HEADER_TIME
+
+# Checks for library functions.
+AC_FUNC_VPRINTF
+AC_CHECK_FUNCS([bzero gethostbyname gethostname inet_ntoa select socket strerror])
+
+# Output results
+AC_CONFIG_FILES([Makefile Makefile.common])
+AC_CONFIG_HEADER(config.h)
+AC_OUTPUT

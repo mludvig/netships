@@ -1,14 +1,14 @@
 # Makefile.common
 # Michal Ludvig <michal@logix.cz>
 
-CC	= gcc
-CXX	= g++
-MAKE	= make
-CPP	= $(CC) -E
-AR	= ar
-STRIP	= strip
+CC	= @CC@
+CXX	= @CXX@
+CFLAGS	= -Wall -g -O2 -I$(TOPDIR)/util
+CFLAGS += @CFLAGS@ @CPPFLAGS@ @DEFS@
+LDFLAGS	= @LDFLAGS@ @LIBS@
 
-CFLAGS  = -I$(TOPDIR)/util -Wall -g -O2
+CPP	= $(CC) -E
+
 ARCHDIR = $(TOPDIR)/arch
 
 .c.s:

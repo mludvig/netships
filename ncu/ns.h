@@ -5,18 +5,18 @@
 // 22.11.1996
 //
 
-#include	<ncurses.h>
-#include "../version.h"
+#include <ncurses.h>
+#include "../config.h"
 
 #ifndef _NS_H_MIC_
 #define _NS_H_MIC_
 
-#define	EMAIL			"michal@logix.cz"
-#define	URL			"http://netships.sourceforge.net/"
-#define	COPY_YEAR	"1996-2001"
-#define	TITLE			" NetShips " VERSION " "
+#define	EMAIL		"michal@logix.cz"
+#define	URL		"http://netships.sourceforge.net/"
+#define	COPY_YEAR	"1996-2002"
+#define	TITLE		" " PACKAGE_STRING " "
 
-#define	f(x,y)			f[xs*y+x]
+#define	f(x,y)		f[xs*y+x]
 
 #define	P_FIRED	1
 #define	P_SHIP	2
@@ -44,7 +44,7 @@ protected:
 	void	setupwp(void);
 	
 public:
-			sea(class pool *pp, WINDOW *parent, int px, int py, int sx, int sy);
+	sea(class pool *pp, WINDOW *parent, int px, int py, int sx, int sy);
 	virtual	~sea();
 	
 	virtual	void	prefresh(void)=0;
@@ -53,7 +53,7 @@ public:
 class seak: public sea
 {
 public:
-			seak(class pool *pp, WINDOW *parent, int px, int py, int sx, int sy);
+	seak(class pool *pp, WINDOW *parent, int px, int py, int sx, int sy);
 	
 	virtual	void	prefresh(void);
 };
@@ -61,7 +61,7 @@ public:
 class seau: public sea
 {
 public:
-			seau(class pool *pp, WINDOW *parent, int px, int py, int sx, int sy);
+	seau(class pool *pp, WINDOW *parent, int px, int py, int sx, int sy);
 	
 	virtual	void	prefresh(void);
 };
@@ -72,12 +72,12 @@ class comm
 	class	poolk	*k;
 	class	info	*info;
 	
-	int			sd,connected,myturn,gameover,fillok;
-	char			buf[MAXLEN];
+	int		sd,connected,myturn,gameover,fillok;
+	char		buf[MAXLEN];
 	
 public:
-			comm(class info *inf);
-			~comm();
+	comm(class info *inf);
+	~comm();
 	
 	int	connsrv(int port);
 	int	conncli(const char *name, int port);
@@ -105,10 +105,10 @@ public:
 class pool
 {
 protected:
-	int			*f;
+	int		*f;
 
-	int			xs,ys;			/* pool size */
-	int			cx,cy;			/* current position */
+	int		xs,ys;			/* pool size */
+	int		cx,cy;			/* current position */
 
 	friend class	seak;
 	friend class	seau;
@@ -118,11 +118,11 @@ protected:
 	
 	int	isship(int x, int y);
 
-	virtual int		fill(void)=0;
+	virtual int	fill(void)=0;
 	
 public:
-						pool(int sx, int sy, class comm *cc);
-	virtual			~pool(void);
+	pool(int sx, int sy, class comm *cc);
+	virtual		~pool(void);
 		
 	virtual	void	mvup(void)=0;
 	virtual	void	mvdown(void)=0;
@@ -140,8 +140,8 @@ class poolu: public pool	/* pool unknown */
 	int	fill(void);
 	
 public:
-			poolu(WINDOW *parent, int px, int py, int sx, int sy, class comm *cc);
-			~poolu();
+	poolu(WINDOW *parent, int px, int py, int sx, int sy, class comm *cc);
+	~poolu();
 
 	void	mvup(void);
 	void	mvdown(void);
@@ -165,8 +165,8 @@ class poolk: public pool	/* pool unknown */
 	int	nextship(int &x, int &y);
 		
 public:
-			poolk(WINDOW *parent, int px, int py, int sx, int sy, class comm *cc, class info *ii);
-			~poolk();
+	poolk(WINDOW *parent, int px, int py, int sx, int sy, class comm *cc, class info *ii);
+	~poolk();
 
 	int	ad(void);
 	int	sh(void);
@@ -188,8 +188,8 @@ class info
 	WINDOW	*wm,*w,*w2;
 	
 public:
-			info(WINDOW *parent, int px, int py, int sx, int sy);
-			~info();
+	info(WINDOW *parent, int px, int py, int sx, int sy);
+	~info();
 	
 	int	write(const char *str);
 	int	write(int attr, const char *str);
