@@ -110,8 +110,8 @@ protected:
 	int			xs,ys;			/* pool size */
 	int			cx,cy;			/* current position */
 
-	friend		seak;
-	friend		seau;
+	friend class	seak;
+	friend class	seau;
 
 	class sea	*s;
 	class comm	*c;

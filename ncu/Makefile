@@ -6,8 +6,8 @@ TOPDIR  = ../
 
 include $(TOPDIR)/Makefile.common
 
-LIBOPT  = -L$(TOPDIR)/util -L$(TOPDIR)/comm -lncurses -lutil -lcomm
-CFLAGS  = -I$(TOPDIR)/util -I$(TOPDIR)/comm -Wall -ggdb
+LIBOPT  += -L$(TOPDIR)/util -L$(TOPDIR)/comm -lncurses -lutil -lcomm
+CFLAGS  += -I$(TOPDIR)/util -I$(TOPDIR)/comm
 ARCHDIR = $(TOPDIR)/arch
 
 EXEC	= netships
@@ -18,7 +18,7 @@ ARCHDATE= $(TOPDIR)/b$(TOPDIR)/archdate
 all: depend $(EXEC)
 
 $(EXEC): $(OBJS)
-	$(CC) -o $(EXEC) $(OBJS) $(LIBOPT)
+	$(CXX) -o $(EXEC) $(OBJS) $(LIBOPT)
 
 # Some service targets:
 clean: 

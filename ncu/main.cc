@@ -34,19 +34,19 @@ int main(int argc, char *argv[])
 	class poolu	*pu;
 	class poolk	*pk;
 	class comm	*co;
-	class	info	*inf;
+	class info	*inf;
 	
-	int			c, sd, n;
+	int		c, sd, n;
 	fd_set		wts;
 
 
 	initscr();
 	keypad(stdscr, TRUE);	/* enable keyboard mapping */
-	nonl();						/* tell curses not to do NL->CR/NL on output */
-   cbreak();					/* take input chars one at a time, no wait for \n */
-   noecho();					/* don't echo input */
+	nonl();			/* tell curses not to do NL->CR/NL on output */
+	cbreak();		/* take input chars one at a time, no wait for \n */
+	noecho();		/* don't echo input */
 	
-	crframe();					/* draw frame around stdscr */
+	crframe();		/* draw frame around stdscr */
 	
 	inf=new info(NULL,3,LINES-9,COLS-6,8);
 	
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 	co=new comm(inf);
 	
 	inf->write("Place your ships please. Press C for Check/Continue or Q for Quit\n"
-				"Required amount of ships: [4]=1, [3]=2, [2]=3, [1]=4\n");
+	           "Required amount of ships: [4]=1, [3]=2, [2]=3, [1]=4\n");
 	
 	pk=new poolk(NULL,COLS-2*xs-6,2,xs,ys,co,inf);
 	
@@ -107,50 +107,50 @@ int main(int argc, char *argv[])
 		else 
 		if(FD_ISSET(1,&wts))
 		{	// stdin
-		c=getch();
-		switch(c)
-		{
-			case KEY_LEFT:
-			case 'h':
-			case 'H':
-				pu->mvleft();
-				break;
+			c=getch();
+			switch(c)
+			{
+				case KEY_LEFT:
+				case 'h':
+				case 'H':
+					pu->mvleft();
+					break;
+				
+				case KEY_RIGHT:
+				case 'l':
+				case 'L':
+					pu->mvright();
+					break;
+				
+				case KEY_UP:
+				case 'k':
+				case 'K':
+					pu->mvup();
+					break;
+				
+				case KEY_DOWN:
+				case 'j':
+				case 'J':
+					pu->mvdown();
+					break;
 			
-			case KEY_RIGHT:
-			case 'l':
-			case 'L':
-				pu->mvright();
-				break;
+				case 0x0D:		// Enter
+				case 0x0A:
+				case ' ':
+					pu->fire();
+					break;
 			
-			case KEY_UP:
-			case 'k':
-			case 'K':
-				pu->mvup();
-				break;
-			
-			case KEY_DOWN:
-			case 'j':
-			case 'J':
-				pu->mvdown();
-				break;
-		
-			case 0x0D:		// Enter
-			case 0x0A:
-			case ' ':
-				pu->fire();
-				break;
-		
-			case 'Q':
-			case 'q':
-				co->close();
-				break;
-					
-			default:
+				case 'Q':
+				case 'q':
+					co->close();
+					break;
+						
+				default:
+					break;
+			}
+			if((c=='q')||(c=='Q'))
 				break;
 		}
-		}
-		if((c=='q')||(c=='Q'))
-			break;
 	}
 	
 	inf->writef(A_BOLD,"\n%s (c) %s\nMichal Ludvig <%s>\n", COPY_YEAR, TITLE, EMAIL);
