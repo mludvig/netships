@@ -1,0 +1,18 @@
+#!/bin/sh
+if [ "$1" != "" ]; then
+   ETFILE=$1
+else
+   if [ -L ETFILE ]; then
+      ETFILE=`ls -l ETFILE | awk '{printf("%s",$NF)}'`
+   else
+      echo "Usage: et <filename> {or make symb. link ETFILE to filename}"
+      exit 1
+   fi
+fi
+
+${EDITOR-joe} $ETFILE
+
+if [ -f $1 ]; then 
+   ci -l $ETFILE
+fi
+

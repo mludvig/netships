@@ -1,0 +1,23 @@
+# Makefile.common
+# Michal Ludvig <michal@logix.cz>
+
+CC	= gcc 
+MAKE	= make
+CPP	= $(CC) -E
+AR	= ar
+STRIP	= strip
+
+CFLAGS  = -I$(TOPDIR)/util -Wall -ggdb
+ARCHDIR = $(TOPDIR)/arch
+
+.c.s:
+	$(CC) $(CFLAGS) -S -o $*.s $<
+.s.o:
+	$(AS) -c -o $*.o $<
+.c.o:
+	$(CC) $(CFLAGS) -c -o $*.o $<
+.cc.o:
+	$(CC) $(CFLAGS) -c -o $*.o $<
+.cpp.C:
+	cp $< $*.C
+

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# prepare directory for creating C-programs
+
+if [ "$1" = "" ]; then
+	_DIR=.
+else
+	_DIR=$1
+fi
+
+cp -rdv ~/src/template/* $_DIR
+
+# done
